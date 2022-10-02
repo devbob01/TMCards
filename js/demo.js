@@ -84,7 +84,7 @@
     class ImageTrail {
         constructor() {
             // images container
-            this.DOM = {content: document.querySelector('.content')};
+            this.DOM = {content: document.querySelector('.socontainer')};
             // array of Image objs, one per image element
             this.images = [];
             [...this.DOM.content.querySelectorAll('img')].forEach(img => this.images.push(new Image(img)));
@@ -158,12 +158,12 @@
             .to(img.DOM.el, 1, {
                 ease: Power1.easeOut,
                 opacity: 0
-            }, 0.4)
+            }, 1)
             // scale down the image
             .to(img.DOM.el, 1, {
                 ease: Quint.easeOut,
                 scale: 0.2
-            }, 0.4);
+            }, 0.8);
         }
     }
 
@@ -173,7 +173,7 @@
     // Preload images
     const preloadImages = () => {
         return new Promise((resolve, reject) => {
-            imagesLoaded(document.querySelectorAll('.content__img'), resolve);
+            imagesLoaded(document.querySelectorAll('.socontainer__img'), resolve);
         });
     };
     
